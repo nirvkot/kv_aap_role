@@ -1,0 +1,18 @@
+---
+# tasks file for kubevirt-vm-creation
+- name: Creating vm on kubevirt cluster
+  community.kubevirt.kubevirt_vm:
+      api_key: "{{ kv_vm_api_token }}"
+      state: running
+      name: "{{ kv_vm_name }}0{{ kv_vm_number }}"
+      namespace: "{{kv_vm_namespace}}"
+      memory: "{{ kv_vm_memory | default('512Mi') }}"
+      cpu_cores: "{{ kv_cpu_cores | default('2') }}"
+      template: "{{ kv_template_name }}"
+      cloud_init_nocloud:
+        userData: |-
+          #cloud-config
+          password: "{{ kv_vm_root_password}}"
+          chpasswd: { expire: False }
+          ssh_authorized_keys:
+            - "{{ kv_vm_auth_key }}"
