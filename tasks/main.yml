@@ -1,4 +1,7 @@
 ---
+- name: installing python dependencies
+  command: pip3 install openshift-client
+  ignore_errors: true
 # tasks file for kubevirt-vm-creation
 - name: Creating vm on kubevirt cluster
   community.kubevirt.kubevirt_vm:
