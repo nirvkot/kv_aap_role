@@ -1,7 +1,7 @@
 ---
-- name: installing python dependencies
-  command: pip3 install openshift-client
-  ignore_errors: true
+- name: Install bottle python package
+  ansible.builtin.pip:
+    name: openshift-client
 # tasks file for kubevirt-vm-creation
 - name: Creating vm on kubevirt cluster
   community.kubevirt.kubevirt_vm:
