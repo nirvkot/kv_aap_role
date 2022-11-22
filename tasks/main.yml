@@ -2,6 +2,9 @@
 - name: Install bottle python package
   ansible.builtin.pip:
     name: openshift-client
+- name: Install bottle python package
+  ansible.builtin.pip:
+    name: openshift
 # tasks file for kubevirt-vm-creation
 - name: Creating vm on kubevirt cluster
   community.kubevirt.kubevirt_vm:
