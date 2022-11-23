@@ -4,6 +4,7 @@
     api_key: "{{ kv_vm_api_token }}"
     state: running
     name: "{{ item }}"
+    validate_certs: false
     host: "{{ kv_vm_host }}"
     namespace: "{{kv_vm_namespace}}"
     memory: "{{ kv_vm_memory | default('512Mi') }}"
