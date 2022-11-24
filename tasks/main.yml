@@ -10,14 +10,14 @@
     memory: "{{ kv_vm_memory | default('512Mi') }}"
     cpu_cores: "{{ kv_cpu_cores | default('2') }}"
     datavolumes:
-     - name: testvm01-pvc
-       source:
-        http:
-         url: http://172.30.120.154/images/rhel86.qcow2
+      - name: testvm01-pvc
+        source:
+          http:
+            url: http://172.30.120.154/images/rhel86.qcow2
         pvc:
-         accessModes:
-          - ReadWriteOnce
-         storage: 16Gi
+          accessModes:
+            - ReadWriteOnce
+          storage: 16Gi
     #template: "{{ kv_template_name }}"
     cloud_init_nocloud:
       userData: |-
